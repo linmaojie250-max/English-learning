@@ -7,7 +7,8 @@
 ## Storage rules
 
 - 生词总库和生词相关资料存入 `vocabulary/`。
-- 每周新增生词存入 `vocabulary/weekly/YYYYWww.xlsx`，周编号采用 ISO 格式。
+- 每个单词必须单独建立一个 Markdown 表格文件，路径优先使用 `vocabulary/words/<word>.md`；一个文件只记录一个单词，不把多个单词混在同一张表里。
+- 每周新增生词如需汇总，可额外维护 `vocabulary/weekly/YYYYWww.xlsx`，但周汇总表不能替代单词独立表。
 - 固定搭配、习语和短语存入 `phrases/`。
 - 值得模仿或复习的完整句子存入 `sentences/`。
 - 单词或句子对应的句法结构、时态、语态、搭配和仿写说明存入 `grammar-notes/weekly/YYYYWww.md`。
@@ -15,6 +16,32 @@
 - 间隔复习计划、测验和错题记录存入 `review/`。
 - PDF、打印版、Anki 导入文件等派生文件存入 `exports/`。
 - 可复用的空白表格和笔记格式存入 `templates/`。
+
+## Vocabulary table rules
+
+每个单词的独立表必须至少包含以下字段：
+
+| 字段 | 要求 |
+|---|---|
+| Word | 单词原形 |
+| Pronunciation | 音标或发音提示 |
+| Part of speech | 词性 |
+| Common meanings | 现代通用英语中的常用义项，必须分条列出，不得只记录当前语境义 |
+| Current-context meaning | 当前语境对应的义项；来源语境不明则写 `unknown` |
+| English definition | 对核心义项给出简洁英文释义 |
+| Example sentence | 与义项一致的自然例句 |
+| Chinese translation | 例句中文翻译 |
+| Word origin / roots | 词源、词根、前后缀或构词说明；无可靠拆解时明确说明 |
+| Common collocations | 常见搭配、短语和固定表达 |
+| Similar / related words | 易混词、近义词、同根词或关联词 |
+| Source | 来源 |
+| Added date | `YYYY-MM-DD` |
+| Proficiency | 1–5 整数 |
+
+- `Common meanings` 必须按词性和常用程度排序，优先收录现代通用英语高频义项。
+- 同一单词如果有多个常见词性，应在同一张单词表中分行记录，不要拆成多个文件。
+- 罕见、古旧或高度专业化义项默认不收录；若当前来源正好使用，则收录并标注使用范围。
+- 除主表外，可在同一文件下方补充“记忆方法”“语法说明”“易混辨析”等内容，但主表不可省略。
 
 ## Data rules
 
@@ -32,6 +59,7 @@
 
 - 文件名使用小写英文、数字和连字符，不使用空格。
 - 日期格式统一为 `YYYY-MM-DD`，周编号统一为 `YYYYWww`。
+- 单词独立表文件名直接使用单词的小写形式，例如 `vocabulary/words/cinderella.md`。
 - Excel 文件优先使用明确的表头、冻结首行和筛选功能；熟练度使用 1–5 的整数。
 - 临时文件不得提交；正式导出物才放入 `exports/`。
 
@@ -39,6 +67,6 @@
 
 1. 确认内容类别与目标目录。
 2. 检查是否已有相同词条、短语、句子或笔记。
-3. 按既有字段和格式新增内容。
-4. 检查拼写、释义、例句、来源和日期。
+3. 新单词先创建或更新对应的独立单词表，再按需更新周汇总表。
+4. 检查全部常用义项、词性、例句、词源/词根、来源和日期是否完整。
 5. 提交前查看 Git 状态，只提交与本次学习任务相关的改动。
