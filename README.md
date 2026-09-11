@@ -47,6 +47,8 @@ English-learning/
 
 ## 建议的生词字段
 
-`word`、`phonetic`、`part_of_speech`、`definition_en`、`meaning_zh`、`usage_notes`、`collocations`、`example_sentence`、`synonyms`、`source`、`date_added`、`mastery_level`、`last_reviewed`、`next_review`。
+`word`、`phonetic`、`part_of_speech`、`sense_no`、`definition_en`、`meaning_zh`、`current_context`、`usage_notes`、`collocations`、`example_sentence`、`synonyms`、`source`、`date_added`、`mastery_level`、`last_reviewed`、`next_review`。
+
+同一单词应按词性列出其现代英语中的全部常用义项，而不是只记录当前句子里的含义；用 `sense_no` 区分义项，并用 `current_context` 标记当前语境采用的义项。罕见、古旧或高度专业化义项通常不收录。
 
 熟练度建议使用 1–5：1 表示刚收录，5 表示能够熟练理解和使用。
